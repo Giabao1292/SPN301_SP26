@@ -10,7 +10,11 @@ function Footer() {
       <Container>
         <Row className="align-items-center text-center">
           <Col md={4}>
-            <img src="/logo.png" alt="Logo" height="30" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/1/1f/Taylor_Swift_-_Taylor_Swift.png"
+              alt="Logo"
+              height="30"
+            />
           </Col>
           <Col md={4}>© 2024 All rights reserved</Col>
           <Col md={4}>student@email.com</Col>
