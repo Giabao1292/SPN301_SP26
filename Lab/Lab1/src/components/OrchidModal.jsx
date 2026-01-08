@@ -1,7 +1,7 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function OrchidDetail({ show, onClose, orchid }) {
+function OrchidModal({ show, onClose, orchid }) {
   if (!orchid) return null;
 
   return (
@@ -29,4 +29,4 @@ function OrchidDetail({ show, onClose, orchid }) {
   );
 }
 
-export default OrchidDetail;
+export default OrchidModal;

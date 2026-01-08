@@ -1,13 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Orchid from "./components/Orchid";
-import "./App.css";
-import listOfOrchids from "./components/ListOfOrchids";
-import OrchidDetail from "./components/OrchidDetail";
 
+import "./App.css";
+import listOfOrchids from "./data/ListOfOrchids";
+import ListOrchids from "./components/ListOrchids";
 const orchid = {
   id: "1",
   orchidName: "Ceasar 4N",
@@ -19,14 +15,6 @@ const orchid = {
   image: "images/4n.jpg",
 };
 function App() {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedOrchid, setSelectedOrchid] = useState(null);
-
-  const handleViewDetail = (orchid) => {
-    setSelectedOrchid(orchid);
-    setShowModal(true);
-  };
-
   return (
     <>
       <div
@@ -36,17 +24,7 @@ function App() {
 
         <div style={{ padding: "24px" }}>
           <h1>🌸 Orchid Store</h1>
-
-          <div className="orchid-grid">
-            {listOfOrchids.map((orchid) => (
-              <Orchid orchid={orchid} onViewDetail={handleViewDetail} />
-            ))}
-            <OrchidDetail
-              show={showModal}
-              orchid={selectedOrchid}
-              onClose={() => setShowModal(false)}
-            />
-          </div>
+          <ListOrchids orchids={listOfOrchids} />
         </div>
 
         <Footer
