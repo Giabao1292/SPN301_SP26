@@ -1,0 +1,83 @@
+import { useState, useMemo } from "react";
+import Orchid from "./Orchid";
+import OrchidModal from "./OrchidModal";
+import FilterSort from "./FilterSort";
+
+export default function ListOrchids({ orchids, searchKeyword }) {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedOrchid, setSelectedOrchid] = useState(null);
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortType, setSortType] = useState("");
+
+  const handleViewDetail = (orchid) => {
+    setSelectedOrchid(orchid);
+    setShowModal(true);
+  };
+
+  const categories = useMemo(() => {
+    return [...new Set(orchids.map((o) => o.category))];
+  }, [orchids]);
+
+  const filteredOrchids = useMemo(() => {
+    let result = [...orchids];
+
+    // 🔍 SEARCH (từ Header)
+    if (searchKeyword) {
+      result = result.filter((o) =>
+        o.orchidName.toLowerCase().includes(searchKeyword.toLowerCase())
+      );
+    }
+
+    // 🏷 FILTER
+    if (selectedCategory) {
+      result = result.filter((o) => o.category === selectedCategory);
+    }
+
+    // 🔃 SORT
+    switch (sortType) {
+      case "price-asc":
+        result.sort((a, b) => a.price - b.price);
+        break;
+      case "price-desc":
+        result.sort((a, b) => b.price - a.price);
+        break;
+      case "name-asc":
+        result.sort((a, b) => a.orchidName.localeCompare(b.orchidName));
+        break;
+      case "name-desc":
+        result.sort((a, b) => b.orchidName.localeCompare(a.orchidName));
+        break;
+      default:
+        break;
+    }
+
+    return result;
+  }, [orchids, searchKeyword, selectedCategory, sortType]);
+
+  return (
+    <>
+      <FilterSort
+        categories={categories}
+        onFilterChange={setSelectedCategory}
+        onSortChange={setSortType}
+      />
+
+      <div className="orchid-grid">
+        {filteredOrchids.map((orchid) => (
+          <Orchid
+            key={orchid.id}
+            orchid={orchid}
+            onViewDetail={handleViewDetail}
+          />
+        ))}
+      </div>
+
+      <OrchidModal
+        show={showModal}
+        orchid={selectedOrchid}
+        onClose={() => setShowModal(false)}
+      />
+    </>
+  );
+}
