@@ -1,0 +1,38 @@
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import LoginPage from "./pages/LoginPage";
+import OrchidDetail from "./components/OrchidDetail";
+
+import listOfOrchids from "./data/ListOfOrchids";
+import "./App.css";
+import { AuthProvider } from "./context/AuthContext";
+import ManageOrchids from "./pages/ManageOrchids";
+function App() {
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  return (
+    <AuthProvider>
+      <Routes>
+        <Route element={<Layout onSearch={setSearchKeyword} />}>
+          <Route path="/" element={<Home searchKeyword={searchKeyword} />} />
+
+          <Route
+            path="/orchid/:id"
+            element={<OrchidDetail orchids={listOfOrchids} />}
+          />
+          <Route path="/manage-orchids" element={<ManageOrchids />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
+      </Routes>
+    </AuthProvider>
+  );
+}
+
+export default App;
