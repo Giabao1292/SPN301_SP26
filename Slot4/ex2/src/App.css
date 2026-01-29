@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.home-carousel img {
+  height: 380px; /* bạn chỉnh 300–450 tuỳ ý */
+  object-fit: cover; /* cắt ảnh cho vừa khung */
+}
+
 /* GRID ORCHID – DESKTOP CHẮC CHẮN NHIỀU CỘT */
 .orchid-grid {
   display: grid;

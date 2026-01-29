@@ -74,12 +74,12 @@ export default function ListOrchids({ searchKeyword }) {
         ))}
       </div>
 
-      {/* <CustomModal
+      <CustomModal
         show={showModal}
         onClose={() => setShowModal(false)}
         title={selectedOrchid?.orchidName}
         data={selectedOrchid}
-      /> */}
+      />
     </>
   );
 }

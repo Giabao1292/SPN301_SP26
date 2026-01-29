@@ -62,15 +62,6 @@
       "isSpecial": false,
       "price": 1000000,
       "image": "https://cdn.tgdd.vn/Files/2021/07/23/1370384/cach-nhan-biet-cac-loai-phong-lan-va-ky-thuat-trong-phu-hop-cho-tung-loai-202107232034448104.jpg"
-    },
-    {
-      "id": 8,
-      "orchidName": "Blue Ocean",
-      "description": "Blue Ocean is a unique Vanda orchid with mesmerizing blue-toned flowers and intricate patterns. Thrives in humid, warm environments with bright indirect light. Its exotic appearance makes it ideal for collectors and enthusiasts looking to add a rare and visually striking orchid to their collection.",
-      "category": "Vanda",
-      "isSpecial": true,
-      "price": 2000000,
-      "image": "https://cdn.tgdd.vn/Files/2021/07/23/1370384/cach-nhan-biet-cac-loai-phong-lan-va-ky-thuat-trong-phu-hop-cho-tung-loai-202107232034448104.jpg"
     }
   ]
 }

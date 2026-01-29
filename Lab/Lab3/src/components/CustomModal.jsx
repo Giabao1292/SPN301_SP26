@@ -4,7 +4,7 @@ function CustomModal({
   show,
   onClose,
   onConfirm,
-  type = "default",
+  type = "orchid", // ✅ mặc định hiển thị orchid
   data,
   title = "",
   children,

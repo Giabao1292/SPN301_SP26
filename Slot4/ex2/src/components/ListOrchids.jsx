@@ -1,6 +1,5 @@
 import { useState, useMemo } from "react";
 import Orchid from "./Orchid";
-import OrchidModal from "./OrchidModal";
 import FilterSort from "./FilterSort";
 import CustomModal from "./CustomModal";
 
